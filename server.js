@@ -1,6 +1,9 @@
 const express = require("express");
 const app = express();
 const usersRoutes = require("./routes/users");
+const householdRoutes = require("./routes/households");
+
+app.use("/api/households", householdRoutes);
 
 app.use(express.json());
 app.use("/api/users", usersRoutes);
