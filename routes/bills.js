@@ -60,3 +60,38 @@ db.query(membersSql, [householdId], (err, members) => {
 
 module.exports = router;
 
+// Mark a bill share as paid
+router.post("/pay", (req, res) => {
+  const { billId, userId } = req.body;
+
+  const sql = `
+    UPDATE bill_shares
+    SET is_paid = 1
+    WHERE bill_id = ? AND user_id = ?
+  `;
+
+  db.query(sql, [billId, userId], (err) => {
+    if (err) return res.status(500).json(err);
+
+    const checkSql = `
+  SELECT COUNT(*) AS unpaid
+  FROM bill_shares
+  WHERE bill_id = ? AND is_paid = 0
+`;
+
+db.query(checkSql, [billId], (err2, result) => {
+  if (err2) return res.status(500).json(err2);
+
+  if (result[0].unpaid === 0) {
+    db.query(
+      "UPDATE bills SET paid = 1 WHERE id = ?",
+      [billId]
+    );
+  }
+
+  res.json({ message: "Payment recorded" });
+});
+
+  });
+});
+
