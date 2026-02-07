@@ -27,3 +27,19 @@ router.post("/create", (req, res) => {
 });
 
 module.exports = router;
+
+// Join a household
+router.post("/join", (req, res) => {
+  const { householdId, userId } = req.body;
+
+  const sql = `
+    INSERT INTO household_members (household_id, user_id, role)
+    VALUES (?, ?, 'member')
+  `;
+
+  db.query(sql, [householdId, userId], (err) => {
+    if (err) return res.status(500).json(err);
+
+    res.json({ message: "Joined household successfully" });
+  });
+});
