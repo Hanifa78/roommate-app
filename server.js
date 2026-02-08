@@ -8,11 +8,14 @@ app.use(express.json());
 const usersRoutes = require("./routes/users");
 const householdRoutes = require("./routes/households");
 const billsRoutes = require("./routes/bills");
+const choresRoutes = require("./routes/chores");
+
 
 // Routes
 app.use("/api/users", usersRoutes);
 app.use("/api/households", householdRoutes);
 app.use("/api/bills", billsRoutes);
+app.use("/api/chores", choresRoutes);
 
 // Test route
 app.get("/", (req, res) => {
