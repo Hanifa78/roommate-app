@@ -19,5 +19,29 @@ router.post("/register", (req, res) => {
     });
   });
 });
+// Login user
+router.post("/login", (req, res) => {
+  const { email, password } = req.body;
+
+  const sql = `
+    SELECT u.id, u.name, u.email, hm.household_id
+    FROM users u
+    LEFT JOIN household_members hm ON u.id = hm.user_id
+    WHERE u.email = ? AND u.password = ?
+  `;
+
+  db.query(sql, [email, password], (err, results) => {
+    if (err) return res.status(500).json(err);
+
+    if (results.length === 0) {
+      return res.status(401).json({ message: "Invalid credentials" });
+    }
+
+    res.json({
+      message: "Login successful",
+      user: results[0]
+    });
+  });
+});
 
 module.exports = router;
