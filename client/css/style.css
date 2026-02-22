@@ -1,0 +1,89 @@
+body {
+margin: 0;
+font-family: Arial, sans-serif;
+background-color: #F4EFEA;
+color: #2C2C2C;
+}
+
+a {
+text-decoration: none;
+color: inherit;
+}
+
+.navbar {
+background: #FFFFFF;
+padding: 20px 60px;
+display: flex;
+justify-content: space-between;
+align-items: center;
+border-bottom: 1px solid #E5E5E5;
+}
+
+.logo {
+font-size: 20px;
+font-weight: bold;
+}
+
+.nav-links {
+list-style: none;
+display: flex;
+gap: 30px;
+}
+
+.hero {
+padding: 120px 60px;
+text-align: center;
+}
+
+.hero h1 {
+font-size: 42px;
+margin-bottom: 20px;
+}
+
+.hero p {
+font-size: 18px;
+margin-bottom: 30px;
+color: #7A7A7A;
+}
+
+.btn-primary {
+background: #8B6F47;
+color: white;
+padding: 12px 24px;
+border-radius: 6px;
+margin-right: 10px;
+}
+
+.btn-primary:hover {
+background: #6E5637;
+}
+
+.btn-secondary {
+border: 1px solid #8B6F47;
+padding: 12px 24px;
+border-radius: 6px;
+color: #8B6F47;
+}
+
+.features {
+display: flex;
+justify-content: center;
+gap: 40px;
+padding: 80px 60px;
+}
+
+.feature-card {
+background: white;
+padding: 30px;
+border-radius: 8px;
+width: 250px;
+box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+text-align: center;
+}
+
+footer {
+text-align: center;
+padding: 30px;
+background: #EDE6DF;
+margin-top: 60px;
+}
