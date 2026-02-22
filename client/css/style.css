@@ -87,3 +87,31 @@ padding: 30px;
 background: #EDE6DF;
 margin-top: 60px;
 }
+
+
+.auth-container {
+display: flex;
+justify-content: center;
+align-items: center;
+height: 80vh;
+}
+
+.auth-card {
+background: white;
+padding: 40px;
+width: 350px;
+border-radius: 8px;
+box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+
+.auth-card h2 {
+margin-bottom: 20px;
+}
+
+.auth-card input {
+width: 100%;
+padding: 12px;
+margin-bottom: 15px;
+border: 1px solid #DDD;
+border-radius: 6px;
+}
