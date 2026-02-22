@@ -33,14 +33,17 @@ router.post("/login", (req, res) => {
   db.query(sql, [email, password], (err, results) => {
     if (err) return res.status(500).json(err);
 
-    if (results.length === 0) {
-      return res.status(401).json({ message: "Invalid credentials" });
-    }
+   if (results.length === 0) {
+return res.status(401).json({ message: "Invalid credentials" });
+}
 
-    res.json({
-      message: "Login successful",
-      user: results[0]
-    });
+res.json({
+message: "Login successful",
+userId: results[0].id,
+name: results[0].name,
+email: results[0].email,
+householdId: results[0].household_id || null
+});
   });
 });
 
