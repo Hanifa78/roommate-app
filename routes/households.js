@@ -43,3 +43,5 @@ router.post("/join", (req, res) => {
     res.json({ message: "Joined household successfully" });
   });
 });
+
+module.exports = router ;

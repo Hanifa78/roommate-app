@@ -95,3 +95,4 @@ db.query(checkSql, [billId], (err2, result) => {
   });
 });
 
+module.exports = router ;
