@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Dashboard - ShareNest</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div class="auth-container">
+<h2>Welcome to Your Dashboard 🎉</h2>
+<p>You are successfully logged in.</p>
+
+<button id="logoutBtn" class="btn-primary">Logout</button>
+</div>
+
+<script>
+// Protect page (basic protection)
+if (!localStorage.getItem("loggedIn")) {
+window.location.href = "login.html";
+}
+
+// Logout button
+document.getElementById("logoutBtn").addEventListener("click", () => {
+localStorage.removeItem("loggedIn");
+window.location.href = "login.html";
+});
+</script>
+
+</body>
+</html>
