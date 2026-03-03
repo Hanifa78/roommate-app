@@ -51,11 +51,14 @@ if (!isMatch) {
 return res.status(401).json({ message: "Invalid credentials" });
 }
 
+const token = Jwt.sign(
+{ id: user.id, email: user.email },
+JWT_SECRET,
+{ expiresIn: "1hr"}
+);
 res.json({
-message: "Login successful",
-userId: user.id,
-name: user.name,
-email: user.email,
+    message: "Login successful",
+    token: token
 });
 
 } catch (error) {
@@ -63,5 +66,6 @@ res.status(500).json({ error: "Server error" });
 }
 });
 });
+
 
 module.exports = router;

@@ -1,7 +1,8 @@
 const express = require("express");
 const cors = require("cors");
 const path = require("path");
-
+const jwt = require("jsonwebtoken");
+const JWT_SECRET = "super_secret_key_change_this" ;
 const app = express();
 
 app.use(express.json());
