@@ -1,12 +1,15 @@
 const express = require("express");
 const cors = require("cors");
+const path = require("path");
 
 const app = express();
 
 app.use(express.json());
 
-app.use(cors());
 
+
+// serve fronyend from express
+app.use(express.static(path.join(__dirname, "client")));
 
 // Routes
 const usersRoutes = require("./routes/users");
@@ -27,7 +30,7 @@ app.get("/", (req, res) => {
 });
 
 // Server
-const PORT = 5000;
+const PORT = 3000;
 app.listen(PORT, () => {
   console.log(`Server running on http://localhost:${PORT}`);
 });
