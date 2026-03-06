@@ -23,7 +23,7 @@ const choresRoutes = require("./routes/chores");
 app.use("/api/users", usersRoutes);
 app.use("/api/households", householdsRoutes);
 app.use("/api/bills", billsRoutes);
-app.use("/api/chores", choresRoutes);
+app.use("/api/chores", choresRoutes); 
 
 // Test route
 app.get("/", (req, res) => {

@@ -2,6 +2,25 @@ const express = require("express");
 const router = express.Router();
 const db = require("../db");
 
+// Get all bills
+router.get("/", (req, res) => {
+
+const sql = `
+SELECT *
+FROM bills
+ORDER BY due_date ASC
+`;
+
+db.query(sql, (err, results) => {
+if (err) {
+return res.status(500).json(err);
+}
+
+res.json(results);
+});
+
+});
+
 // Create a bill
 router.post("/create", (req, res) => {
   const { householdId, title, amount, dueDate, createdBy } = req.body;
@@ -94,5 +113,8 @@ db.query(checkSql, [billId], (err2, result) => {
 
   });
 });
+
+
+
 
 module.exports = router ;

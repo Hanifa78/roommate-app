@@ -41,7 +41,6 @@ const data = await response.json();
 
 if (data.token) {
 localStorage.setItem("token", data.token);
-alert("Login successful 🎉");
 window.location.href = "dashboard.html";
 } else {
 alert(data.message || "Login failed");
